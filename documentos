@@ -1,0 +1,8 @@
+Autenticación de Firebase
+Nombre: Hernán Alexis Chugá Portilla
+
+En general las apps necesitan identificar a los usuarios que acceden a ellas, esto con el objetivo de que la app guarde sus datos y ofrezca una experiencia más personalizada, es en este punto donde la autenticación de Firebase puede resultar de gran ayuda. Firebase Authentication proporciona servicios de backend, SDK fáciles de usar y bibliotecas de IU ya elaboradas para autenticar a los usuarios en una app, adicionalmente admite la autenticación mediante contraseñas, números de teléfono, proveedores de identidad como Google y Facebook, e incluso se puede realizar mediante GitHub. 
+
+Algunas de las ventajas que ofrece el método de autenticación de Firebase son el acceso desde cualquier plataforma (Correo electrónico, línea telefónica, Google, Twitter, Facebook y GitHub, entre otras). Otra de las ventajas es la interfaz de usuario flexible y directa. Además, Firebase Authentication proporciona seguridad integral para el manejo de las credenciales de usuarios y la implementación de este servicio es rápida y sencilla.
+
+Desde mi punto de vista, este servicio de Firebase es de gran ayuda ya que el manejo de las credenciales y el acceso de los usuarios a determinada app puede resultar una tarea complicada de realizar, lo cual nos ayudaría a enfocar todo ese tiempo y esfuerzo a mejorar las funcionalidades de la app.
