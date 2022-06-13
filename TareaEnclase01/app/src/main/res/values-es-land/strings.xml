@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">movcomphacp2022a</string>
+    <string name="saludo">Hola a todos - Esto es horizontal en español</string>
+    <color name="color_fondo">#FF03DAC5</color>
+    <color name="color_texto">#FF018786</color>
+</resources>

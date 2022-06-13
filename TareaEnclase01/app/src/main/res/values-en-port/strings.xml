@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">movcomphacp2022a</string>
+    <string name="saludo">Hello everyone this is vertical in english</string>
+    <color name="color_fondo">#FFBB86FC</color>
+    <color name="color_texto">#FF000000</color>
+</resources>

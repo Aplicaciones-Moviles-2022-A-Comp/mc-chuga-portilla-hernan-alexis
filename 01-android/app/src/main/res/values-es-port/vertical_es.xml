@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">movcomphacp2022a</string>
-    <string name="saludo">Hola amigos</string>
-    <color name="color_fondo">Condicion 4</color>
-    <color name="color_texto">Condicion 4</color>
-
-</resources>
