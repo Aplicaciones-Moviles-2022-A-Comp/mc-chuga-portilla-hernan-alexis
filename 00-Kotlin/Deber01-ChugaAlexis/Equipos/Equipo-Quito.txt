@@ -1,0 +1,5 @@
+nombre:Quito
+precio:23000.0
+Anio de fundacion:2002
+Pertenece a la FEF:No
+

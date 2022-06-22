@@ -11,7 +11,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c31eafe-b3ba-4054-b623-c45e68e1d433" name="Changes" comment="" />
+    <list default="true" id="8c31eafe-b3ba-4054-b623-c45e68e1d433" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../00-Kotlin/Deber01-ChugaAlexis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../00-Kotlin/Deber01-ChugaAlexis/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../00-Kotlin/Deber01-ChugaAlexis/src/main/kotlin/ChugáAlexis-Deber01.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../00-Kotlin/Deber01-ChugaAlexis/src/main/kotlin/ChugáAlexis-Deber01.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../00-Kotlin/mv01/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../00-Kotlin/mv01/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TareaEnclase01/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TareaEnclase01/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TareaEnclase01/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../TareaEnclase01/build.gradle" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,5 +190,8 @@
       <updated>1653065063858</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

@@ -1,0 +1,5 @@
+nombre:Dani
+precio:22300.0
+Año de fundación:2012
+Pertenece a la FEF:Si
+

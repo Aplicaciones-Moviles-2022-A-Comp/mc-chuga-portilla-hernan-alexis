@@ -1,0 +1,5 @@
+nombre:dddd
+precio:23000.0
+Año de fundación:2010
+Pertenece a la FEF:Si
+
