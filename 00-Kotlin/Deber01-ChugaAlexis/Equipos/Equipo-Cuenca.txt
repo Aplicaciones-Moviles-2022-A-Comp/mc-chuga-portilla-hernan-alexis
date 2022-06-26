@@ -1,0 +1,5 @@
+Nombre del Equipo: Cuenca
+Precio del equipo: 200000.0
+Anio de fundacion: 1980
+Pertenece a la FEF: No
+Numero de victorias: 150

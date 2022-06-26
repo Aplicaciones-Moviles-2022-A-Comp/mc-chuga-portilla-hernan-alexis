@@ -1,0 +1,7 @@
+Nombre del Jugador:Luis
+Fecha de nacimiento:2000-01-09
+Estatura:1.8
+Posicion:delantero
+Ecuatoriano:Si
+Equipo del jugador:Equipo-Quito
+

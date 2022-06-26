@@ -1,5 +1,0 @@
-nombre:Alexis
-precio:22.5
-Año de fundacion:2010
-Pertenece a la FEF:Si
-

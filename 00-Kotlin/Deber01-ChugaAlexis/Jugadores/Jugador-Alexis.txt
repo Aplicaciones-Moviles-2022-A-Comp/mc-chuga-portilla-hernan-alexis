@@ -1,0 +1,7 @@
+Nombre del Jugador:Alexis
+Fecha de nacimiento:1999-03-25
+Estatura:1.75
+Posicion:medio campista
+Ecuatoriano:No
+Equipo del jugador:Equipo-Quito
+

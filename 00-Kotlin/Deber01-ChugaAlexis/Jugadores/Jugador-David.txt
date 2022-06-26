@@ -1,0 +1,7 @@
+Nombre del Jugador:David
+Fecha de nacimiento:1995-01-04
+Estatura:1.87
+Posicion:portero
+Ecuatoriano:Si
+Equipo del jugador:Equipo-Cuenca
+

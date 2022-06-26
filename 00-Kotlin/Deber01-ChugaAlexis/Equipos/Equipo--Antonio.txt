@@ -1,5 +1,0 @@
-Nombre del Equipo:-Antonio
-Precio del equipo:200000.0
-Anio de fundacion:2010
-Pertenece a la FEF:No
-Numero de victorias:0

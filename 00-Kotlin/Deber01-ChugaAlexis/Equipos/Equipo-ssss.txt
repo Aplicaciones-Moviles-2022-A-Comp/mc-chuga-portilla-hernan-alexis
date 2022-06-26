@@ -1,5 +1,0 @@
-nombre:ssss
-precio:12005.0
-Año de fundación:2008
-Pertenece a la FEF:No
-

@@ -57,11 +57,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1655136925413</updated>
-      <workItem from="1655136928024" duration="31063000" />
+      <workItem from="1655136928024" duration="60581000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-function">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/ChugáAlexis-Deber01.kt</url>
+          <line>7</line>
+          <properties method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

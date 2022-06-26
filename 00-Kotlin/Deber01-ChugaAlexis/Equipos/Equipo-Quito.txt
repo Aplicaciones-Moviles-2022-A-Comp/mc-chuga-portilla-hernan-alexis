@@ -1,5 +1,5 @@
-nombre:Quito
-precio:23000.0
-Anio de fundacion:2002
-Pertenece a la FEF:No
-
+Nombre del Equipo: Quito
+Precio del equipo: 150000.0
+Anio de fundacion: 2000
+Pertenece a la FEF: Si
+Numero de victorias: 75
