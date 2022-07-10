@@ -10,20 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name="com.example.movcomphacp2022a.CIntentExplicitoParametros"
+            android:name=".CRUD_Entrenador"
+            android:exported="false" />
+        <activity
+            android:name=".CIntentExplicitoParametros"
             android:exported="true" />
         <activity
-            android:name="com.example.movcomphacp2022a.BListView"
+            android:name=".BListView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.example.movcomphacp2022a.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

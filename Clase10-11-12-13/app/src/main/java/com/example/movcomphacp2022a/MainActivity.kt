@@ -56,6 +56,9 @@ class MainActivity : AppCompatActivity() {
         //Alexis
         setContentView(R.layout.activity_main)
        // Sentry.captureMessage("testing SDK setup", SentryLevel.INFO);
+        EBaseDeDatos.TablaEntrenador=ESqliteHelperEntrenador(this)
+
+
         val botonCicloVida=findViewById<Button>(R.id.btn_ciclo_vida)
       /*  botonCicloVida
             .setOnClickListener{
@@ -89,6 +92,11 @@ class MainActivity : AppCompatActivity() {
                 contenidoIntentExplicito.launch(intentConRespuesta)
 //                startActivityForResult(intentConRespuesta, CODIGO_RESPUESTA_INTENT_IMPLICITO)
             }
+        val botonCRUD_Entrenador = findViewById<Button>(R.id.btn_CRUD)
+        botonCRUD_Entrenador
+            .setOnClickListener {
+                irActividad(CRUD_Entrenador::class.java)
+            }
     }
     fun irActividad(
         clase:Class<*>
@@ -104,7 +112,7 @@ class MainActivity : AppCompatActivity() {
         intentExplicito.putExtra("nombre","Alexis")
         intentExplicito.putExtra("apellido","Chuga")
         intentExplicito.putExtra("edad",23)
-        intentExplicito.putExtra("entrenadorPrincipal",BEntrenador("Alexis","Paleta"))
+        intentExplicito.putExtra("entrenadorPrincipal",BEntrenador(1,"Alexis","Paleta"))
         //startActivityForResult(intentExplicito,CODIGO_RESPUESTA_INTENT_EXPLICITO)
         contenidoIntentExplicito.launch(intentExplicito)
 

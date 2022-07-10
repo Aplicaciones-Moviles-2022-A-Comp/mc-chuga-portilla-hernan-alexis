@@ -17,10 +17,10 @@
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.594" />
+        app:layout_constraintVertical_bias="0.783" />
 
     <Button
         android:id="@+id/btn_ciclo_vida"
@@ -29,14 +29,16 @@
         android:text="Ciclo Vida"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.692"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.616" />
 
     <Button
         android:id="@+id/btn_trabclass02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="52dp"
         android:text="Trabajo -Clase-02"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,10 +61,10 @@
         android:text="Intent"
         app:layout_constraintBottom_toTopOf="@+id/btn_ciclo_vida"
         app:layout_constraintEnd_toEndOf="@+id/btn_ciclo_vida"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="@+id/btn_ciclo_vida"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785" />
+        app:layout_constraintVertical_bias="0.938" />
 
     <Button
         android:id="@+id/btn_ir_intent_implicito"
@@ -71,7 +73,19 @@
         android:text="I Implicito"
         app:layout_constraintBottom_toTopOf="@+id/btn_intent"
         app:layout_constraintEnd_toEndOf="@+id/btn_intent"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="@+id/btn_intent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.805" />
+
+    <Button
+        android:id="@+id/btn_CRUD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CRUDENtrenador"
+        app:layout_constraintBottom_toTopOf="@+id/btn_ir_intent_implicito"
+        app:layout_constraintEnd_toEndOf="@+id/btn_ir_intent_implicito"
+        app:layout_constraintStart_toStartOf="@+id/btn_ir_intent_implicito"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

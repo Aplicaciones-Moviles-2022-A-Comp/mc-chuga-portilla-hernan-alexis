@@ -110,7 +110,7 @@ class BListView : AppCompatActivity() {
         adaptador: ArrayAdapter<BEntrenador>
     ){
         arreglo.add(
-            BEntrenador("Chugá", "Alexis")
+            BEntrenador(111,"Chugá", "Alexis")
         )
         adaptador.notifyDataSetChanged()
     }
