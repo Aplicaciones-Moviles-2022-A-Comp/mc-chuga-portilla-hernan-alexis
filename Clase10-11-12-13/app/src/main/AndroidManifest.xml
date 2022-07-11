@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".GRecyclerView"
+            android:exported="false" />
+        <activity
             android:name=".CRUD_Entrenador"
             android:exported="false" />
         <activity
