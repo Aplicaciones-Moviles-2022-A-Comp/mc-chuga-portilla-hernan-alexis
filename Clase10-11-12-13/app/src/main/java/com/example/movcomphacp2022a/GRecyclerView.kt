@@ -16,6 +16,7 @@ class GRecyclerView : AppCompatActivity() {
         listaEntrenador
             .add(BEntrenador(1,"Hernan","Portilla"))
         val recyclerView= findViewById<RecyclerView>(R.id.rv_entrenadores)
+        inicializarRecyclerView(listaEntrenador,recyclerView)
     }
 
     fun inicializarRecyclerView(
@@ -36,6 +37,6 @@ class GRecyclerView : AppCompatActivity() {
     fun aumentarlikes(){
         totalLikes= totalLikes+1
         val totalLikestextView=findViewById<TextView>(R.id.tv_total_likes)
-        totalLikestextView.text=totalLikes.toString()
+        totalLikestextView.setText(totalLikes.toString())
     }
 }

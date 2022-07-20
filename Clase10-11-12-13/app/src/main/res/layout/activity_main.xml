@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="164dp"
         android:text="Ciclo Vida"
+        app:layout_constraintBottom_toTopOf="@+id/btn_ir_intent_implicito"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
