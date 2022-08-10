@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Canciones">
 
     <Button
-        android:id="@+id/btn_iniciarExamen"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Iniciar Examen Refactorado SQLite -  Chuga Alexis"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437" />
+        android:background="@drawable/boton_redondo"
+        android:backgroundTint="@color/white"
+        android:text="Elegir Música"
+        android:textColor="#000000"
+        tools:layout_editor_absoluteX="164dp"
+        tools:layout_editor_absoluteY="249dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,12 +14,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 class InicioJugadores : AppCompatActivity() {
 
     var idItemSeleccionado = 0
-    var idEquipoS = 0
     var equipoPos = 0
     var itemS = 0
+    var idEquipo=0
 
-    var listaJugadores = arrayListOf<String>()
-    var idE_J = arrayListOf<Int>()
 
     var resultAnadirJugador = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -49,42 +47,45 @@ class InicioJugadores : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio_jugador)
     }
+    fun listViewJugadores():ArrayList<JugadorFutbol> {
+        var listaIDJugadores = arrayListOf<Int>()
 
+        Registros.arregloEquipos_Jugadores.forEachIndexed { indice: Int, equipoJugador: Equipo_Jugador ->
+            if (equipoJugador.idEquipo == idEquipo) {
+                listaIDJugadores.add(equipoJugador.idJugador)
+            }
+        }
+        var listaJugadores = arrayListOf<JugadorFutbol>()
+        EquipoBaseDeDatos.TablaEquipo!!.listarJugadores()
+            .forEachIndexed { indice: Int, jugador: JugadorFutbol ->
+                for (i in listaIDJugadores) {
+                    if (i == jugador.idJugador) {
+                        listaJugadores.add(jugador)
+                    }
+                }
+            }
+        return listaJugadores
+    }
     override fun onStart() {
         super.onStart()
         Log.i("ciclo-vida", "onStart")
 
-        listaJugadores = arrayListOf()
-        idE_J = arrayListOf()
-
-
         equipoPos = intent.getIntExtra("posicionEditar",1)
-
-
-
-        val nombreEquipo_jugador = findViewById<TextView>(R.id.tv_nombreE_J)
-
-        EquipoBaseDeDatos.TablaEquipo!!.listarEquipos().forEachIndexed{ indice: Int, equipo : EquipoFutbol ->
-            if (indice == equipoPos){
-                idEquipoS = equipo.idEquipo
-                var label = "Equipo: ${equipo.nombreEquipo}"
-                nombreEquipo_jugador.setText(label)
+        EquipoBaseDeDatos.TablaEquipo!!.listarEquipos().forEachIndexed { indice: Int, equipo: EquipoFutbol ->
+            if (indice == equipoPos) {
+               val txtNombreEquipo=findViewById<TextView>(R.id.tv_nombreE_J)
+                txtNombreEquipo.setText("Equipo: "+equipo.nombreEquipo)
+                idEquipo=equipo.idEquipo
             }
-        }
 
-        BBaseDeDatosMemoria.arregloEquipos_Jugadores.forEachIndexed{ indice: Int, equipo_jugador : Equipo_Jugador ->
-            if (idEquipoS == equipo_jugador.idEquipo){
-                listaJugadores.add(equipo_jugador.nombreE_J.toString())
-                idE_J.add(equipo_jugador.idEquipo_Jugador)
             }
-        }
 
         val listViewJugador = findViewById<ListView>(R.id.lv_jugadores_lista)
 
         val adaptador = ArrayAdapter(
             this,
             android.R.layout.simple_list_item_1,
-            JugadorBaseDeDatos.TablaJugador!!.listarJugadores()
+            listViewJugadores()
         )
         listViewJugador.adapter = adaptador
         adaptador.notifyDataSetChanged()
@@ -104,6 +105,20 @@ class InicioJugadores : AppCompatActivity() {
         this.registerForContextMenu(listViewJugador)
 
     }
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        val listViewJugador = findViewById<ListView>(R.id.lv_jugadores_lista)
+
+        val adaptador = ArrayAdapter(
+            this,
+            android.R.layout.simple_list_item_1,
+            listViewJugadores()
+        )
+        listViewJugador.adapter = adaptador
+        adaptador.notifyDataSetChanged()
+
+    }
 
     override fun onCreateContextMenu(
         menu: ContextMenu?,
@@ -116,7 +131,9 @@ class InicioJugadores : AppCompatActivity() {
         val info = menuInfo as AdapterView.AdapterContextMenuInfo
         val id = info.position
         itemS = id
-        idItemSeleccionado = idE_J.elementAt(id)
+        val idR=listViewJugadores()[id].idJugador
+        idItemSeleccionado = idR//idE_J.elementAt(id)
+        Log.i("context-menu", "ID Jugador ${id}")
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
@@ -128,12 +145,12 @@ class InicioJugadores : AppCompatActivity() {
             }
             R.id.mi_eliminarJugador -> {
                 Log.i("context-menu", "Delete position: ${idItemSeleccionado}")
-                JugadorBaseDeDatos.TablaJugador!!.eliminarJugadores(idItemSeleccionado)
+                EquipoBaseDeDatos.TablaEquipo!!.eliminarJugadores(idItemSeleccionado)
                 val listViewJugador = findViewById<ListView>(R.id.lv_jugadores_lista)
                 val adaptador = ArrayAdapter(
                     this,
                     android.R.layout.simple_list_item_1,
-                    listaJugadores
+                    listViewJugadores()
                 )
                 listViewJugador.adapter = adaptador
                 adaptador.notifyDataSetChanged()
@@ -161,30 +178,5 @@ class InicioJugadores : AppCompatActivity() {
         resultAnadirJugador.launch(intentAddNewJugador)
     }
 
-    fun eliminarJugador(
-        idJugadorAeliminar: Int
-    ){
-        val listViewJugador = findViewById<ListView>(R.id.lv_jugadores_lista)
-
-        var aux_E_J = arrayListOf<Equipo_Jugador>()
-
-        BBaseDeDatosMemoria.arregloEquipos_Jugadores.forEach{ equipo_jugador:Equipo_Jugador ->
-            if(idJugadorAeliminar != equipo_jugador.idEquipo_Jugador){
-                aux_E_J.add(equipo_jugador)
-            }
-        }
-
-        BBaseDeDatosMemoria.arregloEquipos_Jugadores = aux_E_J
-
-        listaJugadores.removeAt(itemS)
-
-        val adaptador = ArrayAdapter(
-            this,
-            android.R.layout.simple_list_item_1,
-            listaJugadores
-        )
-        listViewJugador.adapter = adaptador
-        adaptador.notifyDataSetChanged()
-    }
 
 }

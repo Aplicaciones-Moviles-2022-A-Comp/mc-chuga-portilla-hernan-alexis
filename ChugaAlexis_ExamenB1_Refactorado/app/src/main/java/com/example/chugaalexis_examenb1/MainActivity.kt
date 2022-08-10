@@ -10,9 +10,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        JugadorBaseDeDatos.TablaJugador= ESqliteHelperJugador(this)
-        EquipoBaseDeDatos.TablaEquipo= ESqliteHelperEquipo(this)
-
+       // JugadorBaseDeDatos.TablaJugador= ESqliteHelperJugador(this)
+        EquipoBaseDeDatos.TablaEquipo= ESqliteHelperEquipo_Jugador(this)
+        Registros.arregloEquipos_Jugadores
         val btnIniciar = findViewById<Button>(R.id.btn_iniciarExamen)
         btnIniciar.setOnClickListener{
             val intent = Intent(this, InicioEquipos::class.java)

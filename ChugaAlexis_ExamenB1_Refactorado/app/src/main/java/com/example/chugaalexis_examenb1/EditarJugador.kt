@@ -22,7 +22,7 @@ class EditarJugador : AppCompatActivity() {
         Log.i("ciclo-vida", "onStart")
         super.onStart()
 
-        val idEquipo_Jugador = intent.getIntExtra("jugador",1)
+
         equipoPos = intent.getIntExtra("posicionEquipoeditar",1)
 
         val txtNombreJ = findViewById<TextInputEditText>(R.id.txt_nombreJ_editar)
@@ -32,17 +32,17 @@ class EditarJugador : AppCompatActivity() {
         val txtecuatorianoJ = findViewById<TextInputEditText>(R.id.txt_ecuatorianoJ_crear)
 
 
-        var idJugador: Int = 0
-
+        var idJugador= intent.getIntExtra("jugador",1)
+/*
         BBaseDeDatosMemoria.arregloEquipos_Jugadores.forEachIndexed{ indice: Int, equipo_jugador : Equipo_Jugador ->
             if (idEquipo_Jugador == equipo_jugador.idEquipo_Jugador){
                 txtNombreJ.setText(equipo_jugador.nombreE_J)
                 idJugador = equipo_jugador.idJugador
             }
-        }
+        }*/
 
-        BBaseDeDatosMemoria.arregloJugadores.forEachIndexed{ indice: Int, jugador : JugadorFutbol ->
-            if (idJugador == jugador.idJugador){
+        EquipoBaseDeDatos.TablaEquipo!!.listarJugadores().forEachIndexed{ indice: Int, jugador : JugadorFutbol ->
+            if (jugador.idJugador==idJugador){
                 txtNombreJ.setText(jugador.nombre)
                 txtfechaJ.setText(jugador.fechaNacimiento)
                 txtestaturaJ.setText(jugador.estatura.toString())
@@ -53,22 +53,20 @@ class EditarJugador : AppCompatActivity() {
 
         val btnEditarJugador = findViewById<Button>(R.id.btn_editar_jugador)
         btnEditarJugador.setOnClickListener {
-            BBaseDeDatosMemoria.arregloEquipos_Jugadores.forEachIndexed{ indice: Int, equipo_jugador: Equipo_Jugador ->
+           /* BBaseDeDatosMemoria.arregloEquipos_Jugadores.forEachIndexed{ indice: Int, equipo_jugador: Equipo_Jugador ->
                 if (idEquipo_Jugador == equipo_jugador.idEquipo_Jugador){
                     Log.i("editar","${txtNombreJ.text.toString()}")
                     equipo_jugador.nombreE_J = (txtNombreJ.text.toString())
                 }
-            }
-            BBaseDeDatosMemoria.arregloJugadores.forEachIndexed{ indice: Int, jugador: JugadorFutbol ->
-                if(idJugador==jugador.idJugador){
-                    jugador.nombre=txtNombreJ.text.toString()
-                    jugador.fechaNacimiento=txtfechaJ.text.toString()
-                    jugador.estatura=txtestaturaJ.text.toString().toDouble()
-                    jugador.posicion=txtposcionJ.text.toString()
-                    jugador.esEcuatoriano=txtecuatorianoJ.text.toString()
-                }
+            }*/
+                    var nombre=txtNombreJ.text.toString()
+                    var fechaNacimiento=txtfechaJ.text.toString()
+                    var estatura=txtestaturaJ.text.toString()
+                    var posicion=txtposcionJ.text.toString()
+                    var esEcuatoriano=txtecuatorianoJ.text.toString()
+            EquipoBaseDeDatos.TablaEquipo!!.actualizarJugador(idJugador,nombre,fechaNacimiento,estatura,posicion,esEcuatoriano)
 
-            }
+
 
             respuesta()
         }

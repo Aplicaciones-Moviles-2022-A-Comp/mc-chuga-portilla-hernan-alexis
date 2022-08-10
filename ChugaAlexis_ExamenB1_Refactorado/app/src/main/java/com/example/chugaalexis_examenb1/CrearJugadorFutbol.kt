@@ -11,9 +11,11 @@ import com.google.android.material.textfield.TextInputEditText
 
 class CrearJugadorFutbol : AppCompatActivity() {
 
-    var nextId = 0
-    var lastId = 0
-    var nombre = ""
+    var nextIdJugador = 0
+    var lastIdJugador = 0
+
+    var nextIdE_J=0
+    var lastIdE_J=0
     var idJugadorSeleccionado = 0
     var equipoPos = 0
     var idEquipoS = 0
@@ -42,22 +44,32 @@ class CrearJugadorFutbol : AppCompatActivity() {
 
 
         EquipoBaseDeDatos.TablaEquipo!!.listarEquipos().forEachIndexed{ indice: Int, equipo : EquipoFutbol ->
-
             if (indice == equipoPos){
                 idEquipoS = equipo.idEquipo
             }
         }
 
-        var longLJugador = BBaseDeDatosMemoria.arregloEquipos_Jugadores.lastIndex
 
-        BBaseDeDatosMemoria.arregloEquipos_Jugadores.forEachIndexed{ indice: Int, equipo_jugador : Equipo_Jugador ->
-
-            if (indice == longLJugador){
-                lastId = equipo_jugador.idEquipo_Jugador
+        var longitudListaJugador = EquipoBaseDeDatos.TablaEquipo!!.listarJugadores().lastIndex
+        EquipoBaseDeDatos.TablaEquipo!!.listarJugadores().forEachIndexed{ indice: Int, jugador : JugadorFutbol ->
+            Log.i("testExamen","${jugador.idJugador} -> ${jugador.nombre}")
+            if (indice == longitudListaJugador){
+                lastIdJugador = jugador.idJugador
             }
         }
 
-        nextId = lastId+1
+        nextIdJugador = lastIdJugador+1
+
+
+        var longE_J = Registros.arregloEquipos_Jugadores.lastIndex
+        Registros.arregloEquipos_Jugadores.forEachIndexed{indice: Int, e_j:Equipo_Jugador ->
+            if(indice==longE_J){
+                lastIdE_J=e_j.idEquipo_Jugador
+            }
+
+        }
+        nextIdE_J=lastIdE_J+1
+
 
         var txtNombre = findViewById<TextInputEditText>(R.id.txt_nombreJ_crear)
         var txtfechaJ = findViewById<TextInputEditText>(R.id.txt_fechaJ_crear)
@@ -72,12 +84,11 @@ class CrearJugadorFutbol : AppCompatActivity() {
             var estatura= txtEstaturaJ.text.toString()
             var posicion= txtPosicionJ.text.toString()
             var ecuatoriano= txtEcuatorianoJ.text.toString()
-            BBaseDeDatosMemoria.arregloEquipos_Jugadores.add(
-                Equipo_Jugador(nextId,nombre,idEquipoS,idJugadorSeleccionado)
+            Registros.arregloEquipos_Jugadores.add(
+                Equipo_Jugador(nextIdE_J,idEquipoS,nextIdJugador)
             )
-            JugadorBaseDeDatos.TablaJugador!!.crearJugador(
-                idJugadorSeleccionado,nombre,fecha,estatura,posicion,ecuatoriano)
-
+            EquipoBaseDeDatos.TablaEquipo!!.crearJugador(
+                nextIdJugador,nombre,fecha,estatura,posicion,ecuatoriano)
             respuesta()
         }
 

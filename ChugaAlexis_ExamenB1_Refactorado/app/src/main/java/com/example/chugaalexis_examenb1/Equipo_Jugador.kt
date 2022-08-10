@@ -7,19 +7,14 @@ import android.os.Parcelable
 class Equipo_Jugador (
 
     val idEquipo_Jugador: Int,
-    var nombreE_J: String?,
     val idEquipo: Int,
     val idJugador: Int
 
 ) : Parcelable {
 
-    override fun toString(): String {
-        return "${nombreE_J}"
-    }
 
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
-        parcel.readString(),
         parcel.readInt(),
         parcel.readInt()
     ) {
@@ -27,7 +22,6 @@ class Equipo_Jugador (
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(idEquipo_Jugador)
-        parcel.writeString(nombreE_J)
         parcel.writeInt(idEquipo)
         parcel.writeInt(idJugador)
     }

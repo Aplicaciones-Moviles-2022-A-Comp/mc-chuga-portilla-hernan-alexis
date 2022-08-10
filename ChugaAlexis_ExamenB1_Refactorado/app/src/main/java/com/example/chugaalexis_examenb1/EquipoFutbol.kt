@@ -16,7 +16,7 @@ class EquipoFutbol (
 ) : Parcelable {
 
     override fun toString(): String {
-        return "${idEquipo}-${nombreEquipo}"
+        return "${nombreEquipo}"
     }
 
     constructor(parcel: Parcel) : this(

@@ -35,7 +35,7 @@
             android:name=".EquipoFutbol"
             android:exported="true" />
         <activity
-            android:name=".BBaseDeDatosMemoria"
+            android:name=".Registros"
             android:exported="true" />
         <activity
             android:name=".InicioEquipos"

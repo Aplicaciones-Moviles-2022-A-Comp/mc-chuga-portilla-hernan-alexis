@@ -50,8 +50,8 @@ class InicioEquipos : AppCompatActivity() {
             // primitivos
             putInt("idItemSeleccionado",idItemSeleccionado)
             putParcelableArrayList("arregloEquipo",EquipoBaseDeDatos.TablaEquipo!!.listarEquipos())
-            putParcelableArrayList("arregloE-J",BBaseDeDatosMemoria.arregloEquipos_Jugadores)
-            putParcelableArrayList("arregloJugador",BBaseDeDatosMemoria.arregloJugadores)
+            putParcelableArrayList("arregloE-J",Registros.arregloEquipos_Jugadores)
+
         }
         super.onSaveInstanceState(outState)
     }
@@ -59,9 +59,8 @@ class InicioEquipos : AppCompatActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         idItemSeleccionado = savedInstanceState.getInt("idItemSeleccionado")
-        BBaseDeDatosMemoria.arregloEquipos = savedInstanceState.getParcelableArrayList<EquipoFutbol>("arregloEquipo")!!
-        BBaseDeDatosMemoria.arregloEquipos_Jugadores = savedInstanceState.getParcelableArrayList<Equipo_Jugador>("arregloE-J")!!
-        BBaseDeDatosMemoria.arregloJugadores = savedInstanceState.getParcelableArrayList<JugadorFutbol>("arregloJugador")!!
+
+        Registros.arregloEquipos_Jugadores = savedInstanceState.getParcelableArrayList<Equipo_Jugador>("arregloE-J")!!
         if (idItemSeleccionado == null){
             idItemSeleccionado = 0
         }

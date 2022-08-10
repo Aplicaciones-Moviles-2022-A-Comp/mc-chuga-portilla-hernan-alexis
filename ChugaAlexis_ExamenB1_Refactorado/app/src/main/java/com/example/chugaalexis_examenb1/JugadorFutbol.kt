@@ -38,6 +38,10 @@ class JugadorFutbol (
         return 0
     }
 
+    override fun toString(): String {
+        return "${nombre}"
+    }
+
     companion object CREATOR : Parcelable.Creator<JugadorFutbol> {
         override fun createFromParcel(parcel: Parcel): JugadorFutbol {
             return JugadorFutbol(parcel)
