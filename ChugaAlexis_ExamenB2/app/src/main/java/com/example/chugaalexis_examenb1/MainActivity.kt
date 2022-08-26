@@ -21,8 +21,7 @@ class MainActivity : AppCompatActivity() {
 
 
         btnIniciar.setOnClickListener{
-            val intent = Intent(this, InicioEquipos::class.java)
-            startActivity(intent)
+            finish()
         }
 
     }
