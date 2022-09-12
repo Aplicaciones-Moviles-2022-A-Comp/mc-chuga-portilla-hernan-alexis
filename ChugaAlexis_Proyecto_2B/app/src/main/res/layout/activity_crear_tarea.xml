@@ -6,20 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".CrearCuenta">
 
-    <TextView
+    <Button
         android:id="@+id/txt_atras_crear_tarea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
-        android:text="< Atrás"
-        android:textColor="#25BA00"
-        android:textSize="20sp"
+        android:text="Atrás "
+        android:textColor="@color/white"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.073"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.034" />
+        app:layout_constraintVertical_bias="0.035" />
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="201dp"
@@ -101,7 +101,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         app:layout_constraintVertical_bias="0.0" />
@@ -122,7 +122,7 @@
         app:layout_constraintVertical_bias="0.389" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/txt_titulo_tarea"
         android:layout_width="280dp"
         android:layout_height="48dp"
         android:ems="10"
@@ -134,7 +134,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/txt_decripcion_tarea"
         android:layout_width="279dp"
         android:layout_height="48dp"
         android:ems="10"
@@ -146,7 +146,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <EditText
-        android:id="@+id/editTextDate2"
+        android:id="@+id/txt_fecha"
         android:layout_width="274dp"
         android:layout_height="48dp"
         android:ems="10"
@@ -159,7 +159,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Spinner
-        android:id="@+id/spinner_categoria"
+        android:id="@+id/spinner_categoria_crearTarea"
         android:layout_width="279dp"
         android:layout_height="48dp"
         android:layout_marginTop="4dp"
@@ -170,7 +170,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_crearTarea"
         android:layout_width="216dp"
         android:layout_height="44dp"
         android:background="@drawable/boton_redondo"
@@ -181,7 +181,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_categoria"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_categoria_crearTarea"
         app:layout_constraintVertical_bias="0.35" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

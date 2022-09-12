@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChugaAlexis_ProyectoB2">
         <activity
+            android:name=".EditarCategoria"
+            android:exported="true" />
+        <activity
+            android:name=".InicioCategorias"
+            android:exported="true" />
+        <activity
+            android:name=".EditarTareas"
+            android:exported="true" />
+        <activity
             android:name=".CrearCategoria"
             android:exported="true" />
         <activity

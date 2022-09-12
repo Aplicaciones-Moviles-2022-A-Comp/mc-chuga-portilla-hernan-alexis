@@ -35,12 +35,19 @@
         <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_ExamenB2/app/src/main/res/layout/activity_jugador_crear.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_ExamenB2/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2" />
+        <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/drawable/boton_circulo.xml" value="0.14166666666666666" />
+        <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/drawable/boton_redondo.xml" value="0.14166666666666666" />
         <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/layout/activity_crear_categoria.xml" value="0.22" />
-        <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/layout/activity_crear_cuenta.xml" value="0.25" />
-        <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/layout/activity_crear_tarea.xml" value="0.33" />
-        <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/layout/activity_inicio_tareas.xml" value="0.1526268115942029" />
-        <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/layout/activity_crear_cuenta.xml" value="0.22" />
+        <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/layout/activity_crear_tarea.xml" value="0.25" />
+        <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/layout/activity_editar_categoria.xml" value="0.25" />
+        <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/layout/activity_editar_tareas.xml" value="0.25" />
+        <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/layout/activity_inicio_categorias.xml" value="0.1766304347826087" />
+        <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/layout/activity_inicio_tareas.xml" value="0.2" />
+        <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/layout/activity_login.xml" value="0.16230366492146597" />
         <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/layout/activity_main.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/menu/menu_categorias.xml" value="0.15989583333333332" />
+        <entry key="..\:/Users/USER/Desktop/Octavo Semestre/mc-chuga-portilla-hernan-alexis/ChugaAlexis_Proyecto_2B/app/src/main/res/menu/menutareas.xml" value="0.16927083333333334" />
       </map>
     </option>
   </component>

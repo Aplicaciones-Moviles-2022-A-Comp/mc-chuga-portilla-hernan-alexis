@@ -19,9 +19,9 @@ class MainActivity : AppCompatActivity() {
         //Registros.arregloEquipos_Jugadores
         val btnIniciar = findViewById<Button>(R.id.btn_iniciarExamen)
 
-
         btnIniciar.setOnClickListener{
-            finish()
+            val intent = Intent(this, InicioEquipos::class.java)
+            startActivity(intent)
         }
 
     }
