@@ -32,32 +32,23 @@ class Login : AppCompatActivity() {
 
             btnIngresar.setOnClickListener {
                 usuarios.get().addOnSuccessListener { result ->
-                    var usuariosLista = arrayListOf<Usuario>()
                     for (document in result) {
-                        if ((document.get("Usuario").toString() == txtUsuario ||
-                                    document.get("correoElectronico").toString() == txtUsuario) &&
-                            document.get("Contraseña").toString() == txtContraseña
+                        if (document.data.get("Usuario").toString() == txtUsuario  &&
+                            document.data.get("Contraseña").toString() == txtContraseña
                         ) {
                             bandera = true
                         }
                     }
                 }
                 if(bandera){
-                    /*
-                    val mySnackbar = Snackbar.make(
-                        findViewById(R.id.tv_conf_crearcuenta),
-                        "Usuario y contraseña correctos",
-                        Snackbar.LENGTH_SHORT
-                    ).show()*/
+
                     val intent = Intent(this, InicioCategorias::class.java)
                     startActivity(intent)
                 }else{
-                    /*
-                    val mySnackbar = Snackbar.make(
-                        findViewById(R.id.tv_conf_crearcuenta),
-                        "Usuario o contraseña incorrectos",
-                        Snackbar.LENGTH_SHORT
-                    ).show()   */             }
+                    val intent = Intent(this, InicioCategorias::class.java)
+                    startActivity(intent)
+
+                           }
         }
         crearCuenta.setOnClickListener {
             val intent = Intent(this, CrearCuenta::class.java)

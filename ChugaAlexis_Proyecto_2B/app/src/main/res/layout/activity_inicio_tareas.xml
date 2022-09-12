@@ -62,11 +62,11 @@
         app:layout_constraintVertical_bias="0.035" />
 
     <TextView
-        android:id="@+id/tv_categoria"
+        android:id="@+id/tv_categoria_inicio_tareas"
         android:layout_width="172dp"
         android:layout_height="27dp"
-        android:text="Seleccioné una categoría:"
         android:textColor="@color/black"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,17 +74,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.306" />
-
-    <Spinner
-        android:id="@+id/spinner_cat_inicioT"
-        android:layout_width="285dp"
-        android:layout_height="26dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.388"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.344" />
 
     <TextView
         android:id="@+id/textView13"
@@ -111,17 +100,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.684" />
 
-    <Button
-        android:id="@+id/btn_cCat_inicio"
-        android:layout_width="242dp"
-        android:layout_height="50dp"
-        android:background="@drawable/boton_circulo"
-        android:text="Crear Categoria"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.544"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_agregar_tarea"
-        app:layout_constraintVertical_bias="0.384" />
 </androidx.constraintlayout.widget.ConstraintLayout>

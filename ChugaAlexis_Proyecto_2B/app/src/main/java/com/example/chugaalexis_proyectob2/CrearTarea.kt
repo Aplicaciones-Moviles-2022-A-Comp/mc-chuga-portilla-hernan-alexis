@@ -14,7 +14,6 @@ import com.google.firebase.ktx.Firebase
 
 class CrearTarea : AppCompatActivity() {
     val db = Firebase.firestore
-    var adaptadorSpinner: ArrayAdapter<Categoria>?=null
     val categorias = db.collection("Categorias_Proyecto")
     var categoriaSeleccionada=Categoria("","","")
      var tareaSeleccionada=Tarea("","","","","")
@@ -25,42 +24,14 @@ class CrearTarea : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-
-
+        categoriaSeleccionada=intent.getParcelableExtra<Categoria>("posicionCat")!!
+        val catSubColeccion = categorias.document("${categoriaSeleccionada.idCategoria}")
+            .collection("Tareas")
         var txtTitulo= findViewById<EditText>(R.id.txt_titulo_tarea)
         var txtFecha= findViewById<EditText>(R.id.txt_fecha)
         var txtDescripcion= findViewById<EditText>(R.id.txt_decripcion_tarea)
-        var categoriaT= findViewById<Spinner>(R.id.spinner_categoria_crearTarea)
-        categorias.get().addOnSuccessListener { result ->
-            var listaCategoria = arrayListOf<Categoria>()
-            for(document in result){
-                listaCategoria.add(
-                    Categoria(
-                        document.id.toString(),
-                        document.data.get("Nombre").toString(),
-                        document.data.get("Descripcion").toString(),
-                    )
-                )}
-            adaptadorSpinner = ArrayAdapter(
-                this,
-                android.R.layout.simple_spinner_item,
-                listaCategoria
-            )
-            categoriaT.adapter=adaptadorSpinner
-            adaptadorSpinner!!.notifyDataSetChanged()
 
-            categoriaT.onItemSelectedListener=object :AdapterView.OnItemSelectedListener{
-                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                    categoriaSeleccionada= categoriaT.selectedItem as Categoria
 
-                }
-
-                override fun onNothingSelected(p0: AdapterView<*>?) {
-                    TODO("Not yet implemented")
-                }}}
-
-        val catSubColeccion = categorias.document("${categoriaSeleccionada.idCategoria}")
-            .collection("Tareas")
 
         var btnCrearTarea= findViewById<Button>(R.id.btn_crearTarea)
         btnCrearTarea.setOnClickListener {
@@ -70,12 +41,13 @@ class CrearTarea : AppCompatActivity() {
                 "Descripcion" to txtDescripcion.text.toString(),
                 "IDCategoria" to categoriaSeleccionada.idCategoria,)
             catSubColeccion.add(tarea).addOnSuccessListener{
-                txtTitulo.text!!.clear()
-                txtFecha.text!!.clear()
-                txtDescripcion.text!!.clear()
+                Log.i("Crear-Tarea", "Con exito")
+            }.addOnFailureListener {
+                Log.i("Crear-Tarea", "Fallido")
             }
 
             val intentAddSucces = Intent(this, InicioTareas::class.java)
+            intentAddSucces.putExtra("PosCategoria",categoriaSeleccionada)
             startActivity(intentAddSucces)
 
             var btnAtrasCrearTarea= findViewById<Button>(R.id.txt_atras_crear_tarea)

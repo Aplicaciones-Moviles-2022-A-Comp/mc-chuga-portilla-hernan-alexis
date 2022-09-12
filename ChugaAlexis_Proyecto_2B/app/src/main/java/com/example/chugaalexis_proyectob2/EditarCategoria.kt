@@ -12,7 +12,7 @@ import com.google.firebase.ktx.Firebase
 class EditarCategoria : AppCompatActivity() {
     var catSeleccionado = Categoria("","","")
     val db = Firebase.firestore
-    val categorias = db.collection("Categorias_proyecto")
+    val categorias = db.collection("Categorias_Proyecto")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +26,7 @@ class EditarCategoria : AppCompatActivity() {
         var editarDescripcion= findViewById<EditText>(R.id.txt_descCat_editar)
 
         catSeleccionado = intent.getParcelableExtra<Categoria>("PosCategoria")!!
-        editarnombreCategoria.setText(catSeleccionado.idCategoria)
+        editarnombreCategoria.setText(catSeleccionado.nombre)
         editarDescripcion.setText(catSeleccionado.descripcion)
 
         val btnGuardarCambiosCat = findViewById<Button>(R.id.btn_editar_Categoria)

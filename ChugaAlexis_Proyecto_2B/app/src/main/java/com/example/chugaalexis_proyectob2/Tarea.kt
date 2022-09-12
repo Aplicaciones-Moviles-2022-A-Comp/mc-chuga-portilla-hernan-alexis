@@ -12,7 +12,7 @@ class Tarea (
 ): Parcelable {
 
     override fun toString(): String {
-        return "${titulo}"
+        return "${titulo} - ${fechaLimite}"
     }
 
     constructor(parcel: Parcel) : this(

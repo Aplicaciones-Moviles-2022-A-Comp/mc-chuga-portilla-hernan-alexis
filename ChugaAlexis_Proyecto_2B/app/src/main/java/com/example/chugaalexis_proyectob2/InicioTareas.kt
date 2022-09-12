@@ -1,5 +1,6 @@
 package com.example.chugaalexis_proyectob2
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.view.ContextMenu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -16,59 +18,48 @@ class InicioTareas : AppCompatActivity() {
     val db = Firebase.firestore
     val categorias = db.collection("Categorias_Proyecto")
     var adaptador: ArrayAdapter<Tarea>?=null
-    var adaptadorSpinner:ArrayAdapter<Categoria>?=null
     var idItemSeleccionado = 0
     var tareaSeleccionada= Tarea("","","","","")
 
+    var resultAnadirJugador = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ){ result ->
+        if (result.resultCode == Activity.RESULT_OK){
+            if(result.data != null) {
+                val data = result.data
+                categoriaSeleccionada = intent.getParcelableExtra<Categoria>("PosCategoria")!!
+            }
+        }
+
+    }
+    var resultEditarJugador = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ){ result ->
+        if (result.resultCode == Activity.RESULT_OK){
+            if(result.data != null) {
+                val data = result.data
+                categoriaSeleccionada = intent.getParcelableExtra<Categoria>("PosCategoria")!!
+            }
+        }
+
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inicio_tareas)
     }
 
     override fun onStart() {
+        categoriaSeleccionada = intent.getParcelableExtra<Categoria>("PosCategoria")!!
         super.onStart()
-        var spinnerCat= findViewById<Spinner>(R.id.spinner_cat_inicioT)
-
-        categorias.get().addOnSuccessListener { result ->
-            var listaCategoria = arrayListOf<Categoria>()
-            for(document in result){
-                listaCategoria.add(
-                    Categoria(
-                        document.id.toString(),
-                        document.data.get("Nombre").toString(),
-                        document.data.get("Descripcion").toString(),
-                    )
-                )}
-        adaptadorSpinner = ArrayAdapter(
-            this,
-             android.R.layout.simple_spinner_item,
-            listaCategoria
-            )
-        spinnerCat.adapter=adaptadorSpinner
-        adaptadorSpinner!!.notifyDataSetChanged()
-        spinnerCat.onItemSelectedListener=object :AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-               categoriaSeleccionada= spinnerCat.selectedItem as Categoria
-                listarTareas()
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
-
+        var txtCat = findViewById<TextView>(R.id.tv_categoria_inicio_tareas)
+        txtCat.setText("Categoria: "+categoriaSeleccionada.nombre)
+        categoriaSeleccionada=intent.getParcelableExtra<Categoria>("PosCategoria")!!
+        listViewTareas()
+        var btn_crearTarea=findViewById<Button>(R.id.btn_agregar_tarea)
+        btn_crearTarea.setOnClickListener{
+            abrirActividadAddTarea(CrearTarea::class.java)
         }
 
-        }
-        var btn_crearCuenta=findViewById<Button>(R.id.btn_agregar_tarea)
-        btn_crearCuenta.setOnClickListener{
-            val intent = Intent(this, CrearTarea::class.java)
-            startActivity(intent)
-        }
-        var btn_crearCategoria=findViewById<Button>(R.id.btn_cCat_inicio)
-        btn_crearCategoria.setOnClickListener{
-            val intent = Intent(this, CrearCategoria::class.java)
-            startActivity(intent)
-        }
     }
     override fun onCreateContextMenu(
         menu: ContextMenu?,
@@ -82,34 +73,34 @@ class InicioTareas : AppCompatActivity() {
         idItemSeleccionado = info.position
         Log.i("context-menu", "ID Jugador ${idItemSeleccionado}")
     }
-    /*
+
     override fun onContextItemSelected(item: MenuItem): Boolean {
-        jugadorSeleccionado = adaptador!!.getItem(idItemSeleccionado)
+        tareaSeleccionada = adaptador!!.getItem(idItemSeleccionado)!!
         return when (item.itemId) {
-            R.id.mi_editarJugador -> {
+            R.id.mi_editar -> {
                 Log.i("context-menu", "Edit position: ${idItemSeleccionado}")
-                abrirActividadEditarJugador(EditarJugador::class.java)
+                abrirActividadEditarTarea(EditarTareas::class.java)
                 return true
             }
-            R.id.mi_eliminarJugador -> {
+            R.id.mi_eliminar -> {
                 Log.i("context-menu", "Delete position: ${idItemSeleccionado}")
-                val equipoSubColeccion= equipos.document("${equipoSeleccionado.idEquipo}")
-                    .collection("Jugadores_Futbol")
-                    .document("${jugadorSeleccionado!!.idJugador}")
+                val catSubColeccion= categorias.document("${categoriaSeleccionada.idCategoria}")
+                    .collection("Tareas")
+                    .document("${tareaSeleccionada!!.idTarea}")
                     .delete()
                     .addOnSuccessListener {
-                        Log.i("Eliminar-Jugador","Con exito")
+                        Log.i("Eliminar-tarea","Con exito")
                     }
                     .addOnFailureListener{
-                        Log.i("Eliminar-Jugador","Fallido")
+                        Log.i("Eliminar-tarea","Fallido")
                     }
-                listViewJugadores()
+                listViewTareas()
                 return true
             }
             else -> super.onContextItemSelected(item)
         }
-    }*/
-    fun listarTareas(){
+    }
+    fun listViewTareas(){
         val catSubColeccion= categorias.document("${categoriaSeleccionada.idCategoria}")
             .collection("Tareas")
             .whereEqualTo("IDCategoria","${categoriaSeleccionada.idCategoria}")
@@ -120,9 +111,9 @@ class InicioTareas : AppCompatActivity() {
                 listaTareas.add(
                     Tarea(
                         document.id.toString(),
-                        document.data.get("titulo").toString(),
-                        document.data.get("descripcion").toString(),
-                        document.data.get("fechaLimite").toString(),
+                        document.data.get("Titulo").toString(),
+                        document.data.get("Fecha Limite").toString(),
+                        document.data.get("Descripcion").toString(),
                         document.data.get("IDCategoria").toString()
                     )
                 )
@@ -137,5 +128,21 @@ class InicioTareas : AppCompatActivity() {
 
             registerForContextMenu(tareas_lv)
         }
+    }
+    fun abrirActividadEditarTarea(
+        clase: Class<*>
+    ) {
+        val intentEditarJugador = Intent(this, clase)
+        intentEditarJugador.putExtra("tarea", tareaSeleccionada)
+        intentEditarJugador.putExtra("posicionCateditar",categoriaSeleccionada)
+        resultEditarJugador.launch(intentEditarJugador)
+    }
+
+    fun abrirActividadAddTarea(
+        clase: Class<*>
+    ) {
+        val intentAddNewJugador = Intent(this, clase)
+        intentAddNewJugador.putExtra("posicionCat",categoriaSeleccionada)
+        resultAnadirJugador.launch(intentAddNewJugador)
     }
 }

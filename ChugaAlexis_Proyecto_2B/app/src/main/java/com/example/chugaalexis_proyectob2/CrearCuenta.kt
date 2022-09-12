@@ -45,13 +45,9 @@ class CrearCuenta : AppCompatActivity() {
 
 
                 }.addOnSuccessListener {
-                    Log.i("Crear-User","Failed")
+                    Log.i("Crear-User","Success")
                 }
-                val mySnackbar = Snackbar.make(
-                    findViewById(R.id.tv_conf_crearcuenta),
-                    "Usuario creado con éxito",
-                    Snackbar.LENGTH_SHORT
-                ).show()
+
                 val intentAddSucces = Intent(this, Login::class.java)
                 startActivity(intentAddSucces)
             }

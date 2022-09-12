@@ -46,7 +46,7 @@
         app:layout_constraintVertical_bias="0.035" />
 
     <TextView
-        android:id="@+id/tv_categoria"
+        android:id="@+id/tv_categoria_inicio_tareas"
         android:layout_width="172dp"
         android:layout_height="27dp"
         android:text="Seleccioné una categoría:"
